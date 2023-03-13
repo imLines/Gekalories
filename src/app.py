@@ -6,22 +6,15 @@ from PIL import ImageTk, Image
 class GekaloriesApp(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.title('Gekalories App')
+        self.title('Gekalories 1.0')
         self.geometry('400x900')
         self.init_widget()
         self.configure(background="black")
 
     def init_widget(self):
         vcmd = (self.register(self.validate_number_only))
-        self.img = Image.open("gekalories.png")
-        width, height = self.img.size
-        new_width = 100
-        new_height = int((height / width) * new_width)
-        self.img = self.img.resize((new_width, new_height))
-
-        self.photo = ImageTk.PhotoImage(self.img)
-        self.icon = tk.Label(self, image=self.photo)
-        self.icon.pack()
+        label_name = tk.Label(self, text="Gekalories", font="Arial 28", background="black")
+        label_name.pack(pady=20)
 
         frame_genre = tk.Frame(self, height=70, width=300)
         frame_genre.configure(background="black")
