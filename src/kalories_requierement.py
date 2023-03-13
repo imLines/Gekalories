@@ -1,11 +1,11 @@
 import tkinter as tk
-
+from macro_requierement import MacroRequierement
 
 class KaloriesRequierement(tk.Toplevel):
     def __init__(self, parent, genre, weight, size, age, activity, objective):
         super().__init__(parent)
         self.title('Gekalories - Mon besoin calorique')
-        self.geometry('600x300')
+        self.geometry('600x500')
         self.genre = genre
         self.weight = weight
         self.size = size
@@ -33,6 +33,7 @@ class KaloriesRequierement(tk.Toplevel):
         label_ttde = tk.Label(frame_info, text=f"Ton niveau d'activité est {self.activity}, ton besoin calorique est {self.ttde}kcal").pack()
         label_final_cal = tk.Label(frame_info, text=f"Pour parvenir à tes objectifs, tu dois consommer {self.final_cal}kcal.")
         frame_info.pack()
+        new = MacroRequierement(self, self.final_cal, self.weight)
 
     def calcul_ttde(self):
         if self.activity == 'sédentaire':
